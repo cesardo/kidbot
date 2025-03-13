@@ -48,8 +48,10 @@
            </head>
            <body>    
             <div style="text-align: center;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisUEbFpnWSR_o2D_zeGWSsrt23jt8mht0NU5USiyd5xFOd9ODk1r31lNRrCrxDY4IcvDutC985mkyc69eStnxvqX-fjkdCR_3VkEQqGne2xq2vjHMxDFOGeGcWWjlivl95QHYYFfLWImKloxxF9XWhnabfNNKeZGxccRvEAJaA38mJ_a3IunNjfSSdbXaA/s320/LOGO_KIDBOT.png" alt="KidBot Logo" style="width: 400px; height: auto;">
-        </br>        
-            <form id="myForm">        
+            </div>
+            </br>        
+        <div id="formu">    
+        <form id="myForm">        
                 <label for="pregunta">Pregunta:</label><br>        
                 <textarea id="inputField" name="pregunta" maxlength="150" rows="4" cols="50"></textarea>
                             <br><br>        
@@ -72,6 +74,8 @@
                const inputData = document.getElementById('inputField').value;
    
                loading.style.display = 'block'; // Muestra el GIF de carga
+               formu.style.visibility = 'hidden';
+               formu.style.height = '1px'
                responseDiv.textContent = ''; // Limpia respuestas anteriores
                errorDiv.textContent = ''; // Limpia errores anteriores
    
