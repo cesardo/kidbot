@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> * _ KidBot _ * </title>
+        <style>             
+            body {            
+                    font-family: Arial, sans-serif;            
+                    text-align: center;            
+                    background-color: white;            
+                    margin-top: 30px;        
+                }        
+            img {            
+                margin-bottom: 20px;        
+                }        
+            form {            
+                    display: inline-block;            
+                    text-align: left;        
+                }        
+            textarea {            
+                    width: 300px;        
+                } 
+        #loading 
+            {
+               display: none;
+           }
+           .response {
+               margin-top: 20px;
+                          }   
+           .evento {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            
+        }
+        .evento h2 {
+            margin: 0 0 10px 0;
+        }
+        .evento p {
+            margin: 5px 0;
+        }
+         .evento img {
+            float: right; /* Alinear la imagen hacia la derecha */
+            max-width: 100px; /* Limitar el tamaño de la imagen */
+            height: auto;
+            margin-left: 10px; /* Añadir margen para separar texto de la imagen */
+         }
+        .precio, .edad {
+            font-weight: bold;
+        }
+           </style>
+           </head>
+           <body>    
+            <div style="text-align: center;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisUEbFpnWSR_o2D_zeGWSsrt23jt8mht0NU5USiyd5xFOd9ODk1r31lNRrCrxDY4IcvDutC985mkyc69eStnxvqX-fjkdCR_3VkEQqGne2xq2vjHMxDFOGeGcWWjlivl95QHYYFfLWImKloxxF9XWhnabfNNKeZGxccRvEAJaA38mJ_a3IunNjfSSdbXaA/s320/LOGO_KIDBOT.png" alt="KidBot Logo" style="width: 400px; height: auto;">
+            </div>
+            </br>        
+        <div id="formu">    
+        <form id="myForm">        
+                <label for="pregunta">Pregunta:</label><br>        
+                <textarea id="inputField" name="pregunta" maxlength="150" rows="4" cols="50"></textarea>
+                            <br><br>        
+                <button type="submit">Enviar</button>    
+            </form>
+        </div>
+            <div id="loading"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJ4qhsvAWlXUFnAo30OaMFFbNkiOSXFwt2Ihs-5qFWsO2Vy3HkIP-SPk88BWFHceSAkKjz2-CmDjL5RTiT8xKJITMYBi5oCUG-xZK3I2e-yN3AeRttxM764vzklOnNMOLQqg2mBMFfRK99v7-A_Ljwxf_-8VYYCdcpy6U408NymGbUY5clwR3NWsCZu8hK/s800/progress.gif" alt="Cargando..." width="100">
+                <p>Redactando respuesta...</p>
+            </div>
+          <div class="response" id="response"></div>
+          <div class="error" id="error"></div>
+        <script>
+           const form = document.getElementById('myForm');
+           const loading = document.getElementById('loading');
+           const responseDiv = document.getElementById('response');
+           const errorDiv = document.getElementById('error');
+   
+           form.addEventListener('submit', async (event) => {
+               event.preventDefault(); // Evita la recarga de la página
+               const inputData = document.getElementById('inputField').value;
+   
+               loading.style.display = 'block'; // Muestra el GIF de carga
+               formu.style.visibility = 'hidden';
+               formu.style.height = '1px'
+               responseDiv.textContent = ''; // Limpia respuestas anteriores
+               errorDiv.textContent = ''; // Limpia errores anteriores
+   
+               try {
+                   // Realiza una solicitud a otra URL (ejemplo: API)
+                   const response = await fetch('https://hook.eu1.make.com/nkh6d6ps9hd3nt0k2mxe4frguhpofefd', {
+                       method: 'POST',
+                       headers: {
+                           'Content-Type': 'application/json',
+                       },
+                       body: JSON.stringify({ input: inputData })
+                   });
+   
+                   if (!response.ok) {
+                       throw new Error(`Error en la solicitud: ${response.statusText}`);
+                   }
+   
+                   const data = await response.text(); // Convierte la respuesta a JSON
+                   loading.style.display = 'none'; // Oculta el GIF de carga
+   
+                   // Muestra la respuesta en el div
+                   responseDiv.innerHTML = `${data}`;
+               } catch (error) {
+                   loading.style.display = 'none'; // Oculta el GIF de carga
+                   errorDiv.textContent = `Ocurrió un error: ${error.message}`;
+               }
+           });
+       </script>
+   </body></html>

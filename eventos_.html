@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Eventos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .event {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .event img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .event-content {
+            padding: 15px;
+        }
+        .event-title {
+            font-size: 1.5rem;
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .event-date,
+        .event-price,
+        .event-place,
+        .event-age {
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="event-grid">
+            <!-- Evento 1 -->
+            <div class="event">
+                <img src="evento1.jpg" alt="Concierto de Rock">
+                <div class="event-content">
+                    <h2 class="event-title">Concierto de Rock</h2>
+                    <p class="event-date">Fecha: 20 de marzo de 2025</p>
+                    <p class="event-price">Precio: 25€</p>
+                    <p class="event-place">Lugar: Madrid Arena</p>
+                    <p class="event-age">Edad: A partir de 16 años</p>
+                </div>
+            </div>
+
+            <!-- Evento 2 -->
+            <div class="event">
+                <img src="evento2.jpg" alt="Exposición de Arte">
+                <div class="event-content">
+                    <h2 class="event-title">Exposición de Arte</h2>
+                    <p class="event-date">Fecha: 22 de marzo de 2025</p>
+                    <p class="event-price">Precio: 15€</p>
+                    <p class="event-place">Lugar: Museo Reina Sofía</p>
+                    <p class="event-age">Edad: Todas las edades</p>
+                </div>
+            </div>
+
+            <!-- Evento 3 -->
+            <div class="event">
+                <img src="evento3.jpg" alt="Feria Gastronómica">
+                <div class="event-content">
+                    <h2 class="event-title">Feria Gastronómica</h2>
+                    <p class="event-date">Fecha: 24 de marzo de 2025</p>
+                    <p class="event-price">Precio: Entrada gratuita</p>
+                    <p class="event-place">Lugar: Plaza Mayor</p>
+                    <p class="event-age">Edad: Todas las edades</p>
+                </div>
+            </div>
+
+            <!-- Evento 4 -->
+            <div class="event">
+                <img src="evento4.jpg" alt="Carrera Solidaria">
+                <div class="event-content">
+                    <h2 class="event-title">Carrera Solidaria</h2>
+                    <p class="event-date">Fecha: 26 de marzo de 2025</p>
+                    <p class="event-price">Precio: 10€</p>
+                    <p class="event-place">Lugar: Parque del Retiro</p>
+                    <p class="event-age">Edad: A partir de 12 años</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
