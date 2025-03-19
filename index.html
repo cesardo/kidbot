@@ -93,13 +93,79 @@
             margin: 5px 0;
             color: #666;
         }
+        .rating-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .rating-container img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        iframe {
+            display: none; /* Oculta el iframe para mantener la interfaz limpia */
+        }
+        
+
+        /* Contenedor de la imagen */
+        .image-container img {
+            max-width: 100%; /* La imagen se ajusta al ancho del contenedor */
+            height: auto;
+        }
+
+        /* Texto principal */
+        .main-text {
+            font-family: 'DynaPuff', cursive;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px auto;
+            padding: 0 15px; /* Espaciado lateral para dispositivos pequeños */
+        }
+
+        /* Contenedor del formulario */
+        #formu {
+            margin: 20px auto;
+            padding: 0 15px; /* Ajuste lateral para pantallas pequeñas */
+        }
+
+        textarea {
+            width: 100%; /* Ocupa todo el ancho disponible */
+            max-width: 600px; /* Límite máximo del ancho */
+            font-size: 18px;
+            font-family: 'DynaPuff', cursive;
+            margin-top: 10px;
+        }
+
+        button {
+            font-size: 18px;
+            font-family: 'DynaPuff', cursive;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* Media query para pantallas pequeñas */
+        @media (max-width: 600px) {
+            .main-text {
+                font-size: 20px; /* Reduce el tamaño de la fuente */
+            }
+
+            textarea {
+                font-size: 16px; /* Ajusta la fuente del textarea */
+            }
+
+            button {
+                font-size: 16px; /* Reduce el tamaño del botón */
+            }
+        
            </style>
            </head>
            <body>    
-            <div style="text-align: center;"><img src="kidbot.jpg" alt="KidBot Logo" style="width: 600px; height: auto;">
+            <div class="image-container"><img src="kidbot.jpg" alt="KidBot" style="width: 600px; height: auto;">
             </div>
-            <div style="font-family: 'DynaPuff', cursive, bold; font-size: 24px;">
-            Responde a los Por qué de tus hijos </br>y descubre eventos para disfrutar juntos.
+            <div class="main-text">
+            Responde a los "Por qué..." de tus hijos </br>y descubre eventos para disfrutar juntos.
             </div>
         </br>
         </br>        
@@ -111,7 +177,7 @@
                 <button type="submit" style="font-size: 18px; font-family: 'DynaPuff', cursive;">Enviar</button>    
             </form>
         </div>
-            <div id="loading"><img src="progress.gif" alt="Cargando..." width="100">
+                    <div id="loading"><img src="progress.gif" alt="Cargando..." width="100">
                 <p style="font-size: 18px; font-family: 'DynaPuff', cursive;">Redactando respuesta...</p>
             </div>
           <div class="response" id="response"></div>
