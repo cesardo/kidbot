@@ -2,6 +2,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+
         <title> * _ KidBot _ * </title>
         <style>             
             body {            
@@ -10,6 +12,11 @@
                     background-color: white;            
                     margin-top: 30px;        
                 }        
+                p {
+            font-family: 'DynaPuff', cursivef; /* Cambia a la fuente deseada */
+            font-size: 14px; /* Tamaño de fuente */
+            color: #333; /* Color de texto */
+        }
             img {            
                 margin-bottom: 20px;        
                 }        
@@ -23,6 +30,7 @@
         #loading 
             {
                display: none;
+
            }
            .response {
                margin-top: 20px;
@@ -49,26 +57,62 @@
         .precio, .edad {
             font-weight: bold;
         }
+           .container {
+            width: 90%;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .event {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .event img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .event-content {
+            padding: 15px;
+        }
+        .event-title {
+            font-size: 1.5rem;
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .event-date,
+        .event-price,
+        .event-place,
+        .event-age {
+            margin: 5px 0;
+            color: #666;
+        }
            </style>
            </head>
            <body>    
             <div style="text-align: center;"><img src="kidbot.jpg" alt="KidBot Logo" style="width: 600px; height: auto;">
             </div>
-            <div>
-            Responde a los Por qúe de tus hijos y descubre eventos.
+            <div style="font-family: 'DynaPuff', cursive, bold; font-size: 24px;">
+            Responde a los Por qué de tus hijos </br>y descubre eventos para disfrutar juntos.
             </div>
         </br>
         </br>        
         <div id="formu">    
         <form id="myForm">        
-                <label for="pregunta">Pregunta:</label><br>        
-                <textarea id="inputField" name="pregunta" maxlength="150" rows="4" cols="150"></textarea>
+                <!-- <label for="pregunta" style="font-family: 'Chewy', cursive; font-size: 16px;">Pregunta:</label> -->        
+                <textarea id="inputField" name="pregunta" maxlength="150" rows="4" cols="150" style="width: 400px; font-size: 18px; font-family: 'DynaPuff', cursive;">¿Por qué </textarea>
                             <br><br>        
-                <button type="submit">Enviar</button>    
+                <button type="submit" style="font-size: 18px; font-family: 'DynaPuff', cursive;">Enviar</button>    
             </form>
         </div>
             <div id="loading"><img src="progress.gif" alt="Cargando..." width="100">
-                <p>Redactando respuesta...</p>
+                <p style="font-size: 18px; font-family: 'DynaPuff', cursive;">Redactando respuesta...</p>
             </div>
           <div class="response" id="response"></div>
           <div class="error" id="error"></div>
