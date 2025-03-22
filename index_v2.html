@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>KidBot</title>
+        <style>             
+        #loading 
+            {
+               display: none;
+
+           }
+        .response {
+               margin-top: 20px;
+                }   
+        .evento {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+                }
+        </style>
+     </head>
+    <body>    
+        <div id="formu"> 
+            <form id="myForm">        
+                <!-- <label for="pregunta" style="font-family: 'Chewy', cursive; font-size: 16px;">Pregunta:</label> -->        
+                <textarea id="inputField" name="pregunta" maxlength="150" rows="4" cols="100">¿Por qué </textarea>     
+                <button type="submit">Enviar</button>    
+            </form>
+        </div>
+        <div id="loading"><img src="progress.gif" alt="Cargando..." width="100">
+                <p>Redactando respuesta...</p>
+        </div>
+        <div class="response" id="response"></div>
+        <div class="error" id="error"></div>
+        <script>
+           const form = document.getElementById('myForm');
+           const loading = document.getElementById('loading');
+           const responseDiv = document.getElementById('response');
+           const errorDiv = document.getElementById('error');
+   
+           form.addEventListener('submit', async (event) => {
+               event.preventDefault(); // Evita la recarga de la página
+               const inputData = document.getElementById('inputField').value;
+   
+               loading.style.display = 'block'; // Muestra el GIF de carga
+               formu.style.visibility = 'hidden';
+               formu.style.height = '1px'
+               responseDiv.textContent = ''; // Limpia respuestas anteriores
+               errorDiv.textContent = ''; // Limpia errores anteriores
+   
+               try {
+                   // Realiza una solicitud a otra URL (ejemplo: API)
+                   const response = await fetch('https://hook.eu1.make.com/eiq22oybmmf1k197ktuj8nrjbhbayybg', {
+                       method: 'POST',
+                       headers: {
+                           'Content-Type': 'application/json',
+                       },
+                       body: JSON.stringify({ input: inputData })
+                   });
+   
+                   if (!response.ok) {
+                       throw new Error(`Error en la solicitud: ${response.statusText}`);
+                   }
+   
+                   const data = await response.text(); // Convierte la respuesta a JSON
+                   loading.style.display = 'none'; // Oculta el GIF de carga
+   
+                   // Muestra la respuesta en el div
+                   responseDiv.innerHTML = `${data}`;
+               } catch (error) {
+                   loading.style.display = 'none'; // Oculta el GIF de carga
+                   errorDiv.textContent = `Ocurrió un error: ${error.message}`;
+               }
+           });
+       </script>
+   </body></html>
